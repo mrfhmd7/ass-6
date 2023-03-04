@@ -31,6 +31,29 @@ const aiDetails = (id) => {
             </div>
             <div class="d-lg-flex   gap-4 mt-4">
               
+            <!-- features -->
+            <div>
+              <h5 >Features</h5>
+              <ul>
+                <li>${
+                  data.features[1].feature_name
+                    ? data.features[1].feature_name
+                    : "no data found"
+                }
+                  </li>
+                <li>${
+                  data.features[2].feature_name
+                    ? data.features[2].feature_name
+                    : "no data found"
+                }</li>
+                  
+                  <li>${
+                    data.features[3].feature_name
+                      ? data.features[3].feature_name
+                      : "no data found"
+                  }</li>
+              </ul>
+            </div>
               
             </div>
           </div>
