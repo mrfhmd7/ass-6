@@ -1,8 +1,6 @@
-const loadPosts= (dataLimit) => {
-    toggleSpinner(true);
-    fetch("https://openapi.programming-hero.com/api/ai/tools")
+const aiDetails = (id) => {
+    fetch(`https://openapi.programming-hero.com/api/ai/tool/${id}`)
       .then((res) => res.json())
-      .then((data) => displayAI(data.data.tools,dataLimit));
-      
-  }
-  
+      .then((data) => displayAiDetails(data.data));
+  };
+   
