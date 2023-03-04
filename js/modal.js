@@ -55,6 +55,24 @@ const aiDetails = (id) => {
               </ul>
             </div>
               
+            <!-- integrations -->
+            <div>
+              <h5>Integrations</h5>
+              <ul>
+                <li>${
+                  data.integrations[0] ? data.integrations[0] : "no data found"
+                }
+                  
+                  </li>
+                <li>${
+                  data.integrations[1] ? data.integrations[1] : "no data found"
+                }</li>
+                <li>${
+                  data.integrations[2] ? data.integrations[2] : "no data found"
+                }</li>
+              </ul>
+            </div>
+
             </div>
           </div>
   
