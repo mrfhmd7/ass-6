@@ -51,5 +51,19 @@ const loadPosts= (dataLimit) => {
     
   }
 
+  document.getElementById('btn-show-more').addEventListener('click',function(){
+    loadPosts();
+  })
+  
+  // spinner
+  const toggleSpinner = isLoading =>{
+    const loading = document.getElementById('loading');
+    if(isLoading){
+      loading.classList.remove('d-none');
+    }
+    else{
+      loading.classList.add('d-none');
+    }
+  }
 
   loadPosts(7);
