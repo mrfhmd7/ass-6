@@ -76,6 +76,23 @@ const aiDetails = (id) => {
             </div>
           </div>
   
-          
+          <div class=" col">
+          <div class="mt-3-md">
+            <img src="${data.image_link[0]}" class="img-fluid rounded" alt="">
+            <span class="bg-danger px-2  text-white rounded position-absolute top-0 end-0">${
+              data.accuracy.score ?  `${data.accuracy.score * 100}% Accuracy` : ""
+            }</span>
+          </div>
+          <h5 class="mt-4">${
+            data.input_output_examples[0].input
+              ? data.input_output_examples[0].input
+              : ""
+          }</h5>
+          <p class="mt-4">${
+            data.input_output_examples[0].output
+              ? data.input_output_examples[0].output
+              : "No! Not Yet! Take a break!!!"
+          }</p>
+        </div>
       `;
   };
