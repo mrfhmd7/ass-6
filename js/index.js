@@ -1,28 +1,26 @@
-const loadPosts= (dataLimit) => {
-    toggleSpinner(true);
-    fetch("https://openapi.programming-hero.com/api/ai/tools")
-      .then((res) => res.json())
-      .then((data) => displayAI(data.data.tools,dataLimit));
-      
+const loadPosts = (dataLimit) => {
+  toggleSpinner(true);
+  fetch("https://openapi.programming-hero.com/api/ai/tools")
+    .then((res) => res.json())
+    .then((data) => displayAI(data.data.tools, dataLimit));
+};
+
+const displayAI = (AI, dataLimit) => {
+  const aiContainer = document.getElementById("AI-container");
+  aiContainer.innerHTML = "";
+  //console.log(AI);
+
+  const showAll = document.getElementById("show-all");
+  if (dataLimit && AI.length > 6) {
+    AI = AI.slice(0, 6);
+    showAll.classList.remove("d-none");
+  } else {
+    showAll.classList.add("d-none");
   }
-  
-  const displayAI = (AI,dataLimit) =>{
-    const aiContainer = document.getElementById('AI-container');
-    aiContainer.innerHTML = '';
-    //console.log(AI);
-  
-    const showAll = document.getElementById('show-all');
-    if(dataLimit && AI.length > 6){
-      AI = AI.slice(0,6);
-      showAll.classList.remove('d-none');
-    }
-    else{
-      showAll.classList.add('d-none');
-    }
-    AI.forEach(Ai => {
-        const div = document.createElement('div');
-        div.classList.add('col') ;
-        div.innerHTML = `
+  AI.forEach((Ai) => {
+    const div = document.createElement("div");
+    div.classList.add("col");
+    div.innerHTML = `
         <div class="card p-2 h-100">
                 <img src="${Ai.image}" class="card-img-top img-fluid" alt="...">
               <div class="card-body">
@@ -44,26 +42,24 @@ const loadPosts= (dataLimit) => {
                 
               </div>
           </div>
-        ` 
-        aiContainer.appendChild(div);
-         toggleSpinner(false);
-    });
-    
-  }
+        `;
+    aiContainer.appendChild(div);
+    toggleSpinner(false);
+  });
+};
 
-  document.getElementById('btn-show-more').addEventListener('click',function(){
-    loadPosts();
-  })
-  
-  // spinner
-  const toggleSpinner = isLoading =>{
-    const loading = document.getElementById('loading');
-    if(isLoading){
-      loading.classList.remove('d-none');
-    }
-    else{
-      loading.classList.add('d-none');
-    }
-  }
+document.getElementById("btn-show-more").addEventListener("click", function () {
+  loadPosts();
+});
 
-  loadPosts(7);
+// spinner
+const toggleSpinner = (isLoading) => {
+  const loading = document.getElementById("loading");
+  if (isLoading) {
+    loading.classList.remove("d-none");
+  } else {
+    loading.classList.add("d-none");
+  }
+};
+
+loadPosts(7);
